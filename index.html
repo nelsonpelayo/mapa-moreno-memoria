@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <title>Cuartel V - Zona III</title>
+
+        <link rel="stylesheet" href="./resources/ol.css">
+        <link rel="stylesheet" href="resources/fontawesome-all.min.css">
+        <link href="resources/photon-geocoder-autocomplete.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./resources/ol-layerswitcher.css">
+        <link rel="stylesheet" href="./resources/qgis2web.css">
+        
+        <style>
+        html, body, #map {
+            width: 100%; height: 100%; padding: 0; margin: 0; background-color: #ffffff;
+        }
+
+        #titulo-mapa {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-family: 'Arial', Gadget, sans-serif;
+            font-size: 32px; 
+            color: #000000;
+            text-align: center;
+            text-shadow: 2px 2px 5px rgba(255,255,255,0.8);
+            pointer-events: none;
+        }
+
+        #logo-institucional {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1002;
+            height: 60px;
+            width: auto;
+            pointer-events: none;
+        }
+
+        /* --- LEYENDA Y REFERENCIAS --- */
+        .layer-switcher {
+            margin-top: 90px !important; /* Mantenemos tu margen intacto */
+            padding-top: 0 !important;   /* Vaciamos el espacio blanco interno arriba */
+        }
+
+        /* Quitamos el margen de la lista para que el titulo pueda subir */
+        .layer-switcher ul {
+            padding-top: 0 !important;
+            margin-top: 20px !important;
+        }
+
+        /* ESTO SUBE EL TEXTO "REFERENCIAS" A LA ZONA ROJA */
+        .layer-switcher ul::before {
+            content: "Referencias";
+            display: block;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 25px;
+            color: #333;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            
+            /* Ajuste para que flote en la parte superior del panel */
+            position: relative;
+            top: -10px; /* <--- Subilo más si hace falta (ej: -15px) */
+            padding: 0 5px 10px 5px;
+            margin-bottom: 0px;
+        }
+
+        #pie-direccion {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            font-family: 'Arial', sans-serif;
+            font-size: 20px;
+            color: #888888;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(255,255,255,0.6);
+            pointer-events: none;
+        }
+
+        .ol-control { background-color: rgba(255,255,255,.4) !important; padding: 2px !important; } 
+        </style>
+    </head>
+
+    <body>
+        <img id="logo-institucional" src="2026logo.png" alt="Logo Moreno IDUAR">
+
+        <div id="titulo-mapa" style="text-align: center;">
+    <strong>Calles Nombradas en Honor a los Desaparecidos<br>
+    Cuartel V - Zona III</strong>
+</div>
+        
+        <div id="pie-direccion">Dirección General de Proyectos de Hábitat, Vivienda e Integración Urbana</div>
+
+        <div id="map">
+            <div id="popup" class="ol-popup">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <div id="popup-content"></div>
+            </div>
+        </div>
+
+        <script src="resources/qgis2web_expressions.js"></script>
+        <script src="./resources/functions.js"></script>
+        <script src="./resources/ol.js"></script>
+        <script src="./resources/ol-layerswitcher.js"></script>
+        <script src="resources/photon-geocoder-autocomplete.min.js"></script>
+        <script src="layers/Reserva_Equipamientos_3.js"></script>
+        <script src="layers/moreno_limite_4.js"></script>
+        <script src="layers/BarriosPopulares_5.js"></script>
+        <script src="layers/CallesMloreno_6.js"></script>
+        <script src="layers/CursodeAgua_7.js"></script>
+        <script src="layers/CallesNombradasenHonoraLosDesaparecidos_8.js"></script>
+        <script src="styles/Reserva_Equipamientos_3_style.js"></script>
+        <script src="styles/moreno_limite_4_style.js"></script>
+        <script src="styles/BarriosPopulares_5_style.js"></script>
+        <script src="styles/CallesMloreno_6_style.js"></script>
+        <script src="styles/CursodeAgua_7_style.js"></script>
+        <script src="styles/CallesNombradasenHonoraLosDesaparecidos_8_style.js"></script>
+        <script src="./layers/layers.js" type="text/javascript"></script> 
+        <script src="./resources/Autolinker.min.js"></script>
+        <script src="./resources/qgis2web.js"></script>         
+    </body>
+</html>
